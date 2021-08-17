@@ -1,0 +1,12 @@
+<h1>New Order</h1>
+
+<%= form_for(@order, local: true) do |form| %>
+
+  <%= render "#{@order.current_step}_step", f: form %>
+  <p><%= form.submit "Continue" %></p>
+  <p><%= form.submit "Back", :name => 'back_button' unless @order.first_step? %></p>
+
+<% end %>
+
+
+<%= link_to 'Back', orders_path %>
